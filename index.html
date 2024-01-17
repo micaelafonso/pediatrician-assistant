@@ -10,21 +10,29 @@
 <body>
     <h1>Pediatrics Assistant</h1>
     <form>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">Boy</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Girl</label> <br>
+        <br>
         <label for="fage">Age: </label>
-        <input type="number" id="weeks" name="fweeks"> weeks
         <input type="number" id="months" name="fmonths"> months
         <input type="number" id="years" name="fyears"> years <br>
+        <br>
     </form>
-    <form>
+        <form>
         <label for="fweight">Weight: </label>
         <input type="number" id="weight" name="fweight"> kg <br>
+        <br>
     </form>
     <form>
         <label for="fheight">Height: </label>
-        <input type="number" id="height" name="fheight"> m <br>
+        <input type="number" id="height" name="fheight"> cm <br>
+        <br>
     </form>
     <h1 id="imc">IMC: 0</h1>
-    <h1 id="wp">Weight Percentile: 0</h1>
+    <h1 id="wp">Weight For Age Percentile: 0</h1>
+    <h1 id="hp">Height For Age Percentile: 0</h1>
     <script src="script.js"></script>
 </body>
 </html>
