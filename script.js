@@ -13,6 +13,7 @@ let weeks = 0;
 let years = 0;
 let months = 0;
 let days = 0;
+let hc = 0;
 
 radiobtn = document.getElementById("male");
 radiobtn.checked = true;
@@ -26,7 +27,6 @@ document.getElementById('date').addEventListener('input', (e) => {
     days = Math.round(difference / 1000 / 60 / 60 / 24);
 
     months = Math.round(days / 30);
-    console.log(parsed);
 
     performAllCalculations();
 
@@ -57,9 +57,16 @@ document.getElementById('weight').addEventListener('input', (e) => {
 
 });
 
-function imc() {
-    var imc = weight / (height/100 * height/100);
-    document.getElementById('imc').innerHTML = "IMC: " + imc.toFixed(2);
+document.getElementById('headCircumference').addEventListener('input', (e) => {
+    hc = e.target.value;
+    performAllCalculations();
+
+});
+
+function bmi() {
+    var bmi = weight / (height/100 * height/100);
+    document.getElementById('bmi').innerHTML = "bmi: " + bmi.toFixed(2);
+    return bmi;
 }
 
 function standardNormalCDF(x) {
@@ -69,9 +76,29 @@ function standardNormalCDF(x) {
 function performAllCalculations() {
     WeightPercentile();
     HeightPercentile();
-    imc();
+    bmi();
+    bmiPercentile();
+    headCircumferencePercentile();
 }
 
+
+function bmiPercentile() {
+    var formula = "bmiDaysTill5y";
+    var index = 0;
+    if (days < 1857) {
+        index = days - 1;
+    }
+    else if (months < 121) {
+        index = months-62;
+        formula = "bmiMonths5to19";
+    }
+    var L = parsed[gender][formula]["L"][index];
+    var M = parsed[gender][formula]["M"][index];
+    var S = parsed[gender][formula]["S"][index];
+    var z = (math.pow(bmi()/M, L) -1) / (L * S);
+    var percentile = standardNormalCDF(z) * 100;
+    document.getElementById("bmip").innerHTML = "BMI Percentile: " + percentile.toFixed(0);
+}
 
 function WeightPercentile() {
     var formula = "weightDaysTill5y";
@@ -105,8 +132,21 @@ function HeightPercentile() {
     }
     var M = parsed[gender][formula]["M"][index];
     var S = parsed[gender][formula]["S"][index];
-    var z = (math.pow(weight/M, L) -1) / (L * S);
     var z = ((height/M) -1) / (S);
     var percentile = standardNormalCDF(z) * 100;
     document.getElementById("hp").innerHTML = "Height For Age Percentile: " + percentile.toFixed(0);
+}
+
+function headCircumferencePercentile() {
+    var L = 1;
+    var index = 0;
+    var formula = "headCircumferenceDaysTill5y";
+    if (days < 1857) {
+        index = days-1;
+    }
+    var M = parsed[gender][formula]["M"][index];
+    var S = parsed[gender][formula]["S"][index];
+    var z = ((hc/M) -1) / (S);
+    var percentile = standardNormalCDF(z) * 100;
+    document.getElementById("hc").innerHTML = "Head Circumference For Age Percentile: " + percentile.toFixed(0);
 }
