@@ -5,35 +5,40 @@
   <title>Pediatrics Assistant</title>
   <meta name="description" content="Description Goes Here">
   <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/assets/logo.png">
   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-    <h1>Pediatrics Assistant</h1>
-    <form>
-        <input type="date" id="date" name="fdate" required pattern="\d{2}-\d{2}-\d{4}"> kg <br>
-
-        <input type="radio" name="gender" id="male" value="male">
-        <label for="male">Boy</label>
+    <img class="logo" src="assets/logo.png" alt="Logo">
+    
+    <div class="segmented-button" id="segBut">
+        <input type="radio" name="gender" id="male" value="male"> 
+        <label class="seg-label" for="male">Boy</label>
         <input type="radio" name="gender" id="female" value="female">
-        <label for="female">Girl</label> <br>
-        <br>
-        <br>
-    </form>
+        <label class="seg-label" for="female">Girl</label> <br>
+    </div> 
+    <div class="container">
         <form>
-        <label for="fweight">Weight: </label>
-        <input type="number" id="weight" name="fweight"> kg <br>
-        <br>
-    </form>
-    <form>
-        <label for="fheight">Height: </label>
-        <input type="number" id="height" name="fheight"> cm <br>
-        <br>
-    </form>
-    <form>
-        <label for="fHeadCircumference">Head Circumference: </label>
-        <input type="number" id="headCircumference" name="fHeadCircumference"> cm <br>
-        <br>
-    </form>
+            <div class="grid">
+                <label for="fweight">Date:</label>
+                <input class="calendar" type="date" id="date" name="fdate" required pattern="\d{2}-\d{2}-\d{4}">
+            </div>
+        
+            <div class="grid">
+                <label for="fweight">Weight:</label>
+                <input type="number" id="weight" name="fweight">kg
+            </div>
+            <div class="grid">
+                <label for="fheight">Height:</label>
+                <input type="number" id="height" name="fheight"> cm
+            </div>
+            <div class="grid">
+                <label for="fHeadCircumference">Head Circumference:</label>
+                <input type="number" id="headCircumference" name="fHeadCircumference"> cm
+            </div>
+        </form>
+    </div>
     <h1 id="bmi">BMI: 0</h1>
     <h1 id="bmip">BMI Percentile: 0</h1>
     <h1 id="wp">Weight For Age Percentile: 0</h1>

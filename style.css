@@ -1,0 +1,111 @@
+/* Default background color */
+body {
+    transition: background-color 0.4s;
+    font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    padding: 0.5%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    font: 18px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+
+}
+
+input {
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+    font: 15px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    height: 40px;
+    width: 200px;
+
+}
+
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  
+.logo {
+    width: auto;
+    height: 20vh; /* Adjust the height as needed */
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.segmented-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    display: flex;
+    font: 20px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    margin: 1%;
+}
+
+.seg-label {
+    text-align: center;
+    width: 10vw;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="radio"]:first-child:checked + .seg-label {
+    border: 2px solid #3498db9d;
+    border-right: 0px;
+    background-color: #3498db9d; /* Background color */
+    color: #fff; /* Text color when selected */
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+
+}
+
+input[type="radio"]:first-child + .seg-label {
+    border: 2px solid #ce42b9a4;
+    border-right: 0px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+input[type="radio"]:nth-child(3) + .seg-label {
+    border: 2px solid #3498db9d;
+    border-left: 0px;
+    border-radius: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+input[type="radio"]:nth-child(3):checked + .seg-label {
+    background-color: #ce42b9a4; /* Background color */
+    border: 2px solid #ce42b9a4;
+    border-left: 0px;
+    color: #fff; /* Text color when selected */
+    border-radius: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+}

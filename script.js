@@ -17,6 +17,9 @@ let hc = 0;
 
 radiobtn = document.getElementById("male");
 radiobtn.checked = true;
+let boyBackgroundColor= "#D9EDF8";
+let girlBackgroundColor = "#F2C6DE";
+document.body.style.backgroundColor = boyBackgroundColor;
 
 
 document.getElementById('date').addEventListener('input', (e) => {
@@ -33,15 +36,17 @@ document.getElementById('date').addEventListener('input', (e) => {
 });
 
 document.getElementById('male').addEventListener('change', (e) => {
+    document.body.style.backgroundColor = boyBackgroundColor;
     gender = "boys";
     performAllCalculations();
 
 });
 
 document.getElementById('female').addEventListener('change', (e) => {
+    document.body.style.backgroundColor = girlBackgroundColor;
+
     gender = "girls";
     performAllCalculations();
-
 });
 
 
