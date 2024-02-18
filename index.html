@@ -21,29 +21,45 @@
     <div class="container">
         <form>
             <div class="grid">
-                <label for="fweight">Date:</label>
-                <input class="calendar" type="date" id="date" name="fdate" required pattern="\d{2}-\d{2}-\d{4}">
-            </div>
-        
-            <div class="grid">
-                <label for="fweight">Weight:</label>
-                <input type="number" id="weight" name="fweight">kg
+                <label for="date">Date:</label>
+                <input class="calendar" type="date" id="date" required pattern="\d{2}-\d{2}-\d{4}">
             </div>
             <div class="grid">
-                <label for="fheight">Height:</label>
-                <input type="number" id="height" name="fheight"> cm
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" >kg
             </div>
             <div class="grid">
-                <label for="fHeadCircumference">Head Circumference:</label>
-                <input type="number" id="headCircumference" name="fHeadCircumference"> cm
+                <label for="height">Height:</label>
+                <input type="number" id="height"> cm
+            </div>
+            <div class="grid">
+                <label for="headCircumference">Head Circumference:</label>
+                <input type="number" id="headCircumference"> cm
             </div>
         </form>
     </div>
-    <h1 id="bmi">BMI: 0</h1>
-    <h1 id="bmip">BMI Percentile: 0</h1>
-    <h1 id="wp">Weight For Age Percentile: 0</h1>
-    <h1 id="hp">Height For Age Percentile: 0</h1>
-    <h1 id="hc">Head Circumference For Age Percentile: 0</h1>
+    <div class="results">
+        <div class="container">
+            <h1 id="bmi">0</h1>
+            <h3>BMI</h3>
+        </div>
+            <div class="container">
+                <h1 class="trans" id="bmip">0</h1>
+                <h3>BMI Percentile</h3>
+            </div>
+            <div class="container">
+                <h1 class="trans" id="wp">0</h1>
+                <h3>Weight For Age Percentile</h3>
+            </div>
+            <div class="container">
+                <h1 class="trans" id="hp">0</h1>
+                <h3>Height For Age Percentile</h3>
+            </div>
+            <div class="container">
+                <h1 class="trans" id="hc">0</h1>
+                <h3>Head Circumference For Age Percentile</h3>
+            </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

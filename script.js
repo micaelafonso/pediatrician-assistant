@@ -6,6 +6,7 @@ response.then((response) => {
     parsed = json;
 });
 
+
 let gender = "boys";
 let weight = 0;
 let height = 1;
@@ -20,7 +21,6 @@ radiobtn.checked = true;
 let boyBackgroundColor= "#D9EDF8";
 let girlBackgroundColor = "#F2C6DE";
 document.body.style.backgroundColor = boyBackgroundColor;
-
 
 document.getElementById('date').addEventListener('input', (e) => {
     date = new Date(e.target.value);
@@ -70,7 +70,7 @@ document.getElementById('headCircumference').addEventListener('input', (e) => {
 
 function bmi() {
     var bmi = weight / (height/100 * height/100);
-    document.getElementById('bmi').innerHTML = "bmi: " + bmi.toFixed(2);
+    document.getElementById('bmi').innerHTML = bmi.toFixed(2);
     return bmi;
 }
 
@@ -102,7 +102,7 @@ function bmiPercentile() {
     var S = parsed[gender][formula]["S"][index];
     var z = (math.pow(bmi()/M, L) -1) / (L * S);
     var percentile = standardNormalCDF(z) * 100;
-    document.getElementById("bmip").innerHTML = "BMI Percentile: " + percentile.toFixed(0);
+    document.getElementById("bmip").innerHTML = percentile.toFixed(0);
 }
 
 function WeightPercentile() {
@@ -115,12 +115,13 @@ function WeightPercentile() {
         index = months-62;
         formula = "weightMonths5to10";
     }
+    console.log(parsed[gender][formula]["L"]);
     var L = parsed[gender][formula]["L"][index];
     var M = parsed[gender][formula]["M"][index];
     var S = parsed[gender][formula]["S"][index];
     var z = (math.pow(weight/M, L) -1) / (L * S);
     var percentile = standardNormalCDF(z) * 100;
-    document.getElementById("wp").innerHTML = "Weight For Age Percentile: " + percentile.toFixed(0);
+    document.getElementById("wp").innerHTML = percentile.toFixed(0);
 }
 
 function HeightPercentile() {
@@ -132,14 +133,13 @@ function HeightPercentile() {
     }
     else if (months < 121) {
         index = months-62;
-        console.log(index);
         formula = "heightMonths5to19";
     }
     var M = parsed[gender][formula]["M"][index];
     var S = parsed[gender][formula]["S"][index];
     var z = ((height/M) -1) / (S);
     var percentile = standardNormalCDF(z) * 100;
-    document.getElementById("hp").innerHTML = "Height For Age Percentile: " + percentile.toFixed(0);
+    document.getElementById("hp").innerHTML = percentile.toFixed(0);
 }
 
 function headCircumferencePercentile() {
@@ -153,5 +153,5 @@ function headCircumferencePercentile() {
     var S = parsed[gender][formula]["S"][index];
     var z = ((hc/M) -1) / (S);
     var percentile = standardNormalCDF(z) * 100;
-    document.getElementById("hc").innerHTML = "Head Circumference For Age Percentile: " + percentile.toFixed(0);
+    document.getElementById("hc").innerHTML = percentile.toFixed(0);
 }
