@@ -1,55 +1,3 @@
-/* Default background color */
-body {
-    transition: background-color 0.4s;
-    font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    padding: 0.5%;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
-}
-
-.results {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 1%;
-}
-
-.grid {
-    font: 18px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1vw;
-    align-items: center;
-    justify-content: center;
-    margin: 1%;
-}
-
-input {
-    border: 1px solid #c4c4c4;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-    font: 15px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    height: 40px;
-    width: 200px;
-
-}
-
-[type="date"] {
-    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
-}
-  [type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
-  }
-
-  
 .logo {
     width: auto;
     height: 20vh; /* Adjust the height as needed */
@@ -58,6 +6,47 @@ input {
     margin-bottom: 2%;
 }
 
+body {
+    transition: background-color 1s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: 2rem/0.3 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 0.5fr 0.05fr 1fr;
+    align-items: center;
+}
+
+/* Default Input */
+
+input {
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+    font: 25px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    height: 3.5rem;
+    width: 15rem;
+
+}
+
+/* Date */
+
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+
+/* Segmented Button */
 input[type="radio"] {
     display: none;
 }
@@ -74,11 +63,14 @@ input[type="radio"] {
 }
 
 .seg-label {
-    text-align: center;
-    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 1s, color 1s;
 }
 
 input[type="radio"]:first-child:checked + .seg-label {

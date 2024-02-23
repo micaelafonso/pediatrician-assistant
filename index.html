@@ -23,42 +23,37 @@
             <div class="grid">
                 <label for="date">Date:</label>
                 <input class="calendar" type="date" id="date" required pattern="\d{2}-\d{2}-\d{4}">
+                <p></p>
+                <p></p>
+                <h3 class="trans">Percentile</h3>
+
             </div>
             <div class="grid">
                 <label for="weight">Weight:</label>
                 <input type="number" id="weight" >kg
+                <h3>P</h3>
+                <h1 class="trans" id="wp">0</h1>
             </div>
             <div class="grid">
                 <label for="height">Height:</label>
                 <input type="number" id="height"> cm
+                <h3>P</h3>
+                <h1 class="trans" id="hp">0</h1>
             </div>
             <div class="grid">
                 <label for="headCircumference">Head Circumference:</label>
                 <input type="number" id="headCircumference"> cm
+                <h3>P</h3>
+                <h1 class="trans" id="hc">0</h1>
+            </div>
+            <div class="grid">
+                <p>BMI:</p>
+                <h1 id="bmi">0</h1>
+                <p></p>
+                <h3>P</h3>
+                <h1 class="trans" id="bmip">0</h1>
             </div>
         </form>
-    </div>
-    <div class="results">
-        <div class="container">
-            <h1 id="bmi">0</h1>
-            <h3>BMI</h3>
-        </div>
-            <div class="container">
-                <h1 class="trans" id="bmip">0</h1>
-                <h3>BMI Percentile</h3>
-            </div>
-            <div class="container">
-                <h1 class="trans" id="wp">0</h1>
-                <h3>Weight For Age Percentile</h3>
-            </div>
-            <div class="container">
-                <h1 class="trans" id="hp">0</h1>
-                <h3>Height For Age Percentile</h3>
-            </div>
-            <div class="container">
-                <h1 class="trans" id="hc">0</h1>
-                <h3>Head Circumference For Age Percentile</h3>
-            </div>
     </div>
     <script src="script.js"></script>
 </body>
