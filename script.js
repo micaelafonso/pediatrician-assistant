@@ -6,6 +6,37 @@ response.then((response) => {
     parsed = json;
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the user's preferred language
+    const userLanguage = navigator.language || navigator.userLanguage;
+
+    // Set up language-specific content
+    const content = {
+        'en': { boyStr: "Boy", girlStr:"Girl", dateStr: 'Date:', percentile: 'Percentile', weightStr: 'Weight:', heightStr: 'Height:', headCircumferenceStr: 'Head Circumference:', bmiStr: 'BMI:'},
+        'pt': { boyStr: "Rapaz", girlStr: "Rapariga", dateStr: 'Data:', percentile: 'Percentil', weightStr: 'Peso:', heightStr: 'Altura:', headCircumferenceStr: 'Perímetro cefálico:', bmiStr: 'IMC:'},
+        // Add more languages as needed
+    };
+
+    // Set default language if the user's language is not supported
+    const defaultLanguage = 'en';
+
+    // Update content based on the user's language
+    const userContent = content[userLanguage] || content[defaultLanguage];
+
+    // Update HTML elements with language-specific content
+    document.getElementById('boyStr').innerText = userContent.boyStr;
+    document.getElementById('girlStr').innerText = userContent.girlStr;
+    document.getElementById('dateStr').innerText = userContent.dateStr;
+    document.getElementById('percentile').innerText = userContent.percentile;
+    document.getElementById('weightStr').innerText = userContent.weightStr;
+    document.getElementById('heightStr').innerText = userContent.heightStr;
+    document.getElementById('headCircumferenceStr').innerText = userContent.headCircumferenceStr;
+    document.getElementById('bmiStr').innerText = userContent.bmiStr;
+
+
+    // Add code to update other language-specific content as needed
+});
+
 
 let gender = "boys";
 let weight = 0;
