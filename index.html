@@ -1,35 +1,36 @@
 <!doctype html>
 <head>
-  <meta charset="utf-8">
-  <title>Pediatrics Assistant</title>
-  <meta name="description" content="The Pediatrician helper">
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="/assets/logo.png">
-  <!-- <link rel="stylesheet" href="style.css"> -->
+    <meta charset="utf-8">
+    <title>Pediatrics Assistant</title>
+    <meta name="description" content="The Pediatrician helper">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.0/math.js></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
     <img class="logo" src="assets/logo.png" alt="Logo">
-    
+
     <div class="segmented-button" id="segBut">
-        <input type="radio" name="gender" id="male" value="male"> 
+        <input type="radio" name="gender" id="male" value="male">
         <label id="boyStr" class="seg-label" for="male"></label>
         <input type="radio" name="gender" id="female" value="female">
         <label id="girlStr" class="seg-label" for="female"></label> <br>
-    </div> 
+    </div>
     <div class="container">
         <form>
             <div class="grid">
                 <label id="dateStr" for="date">Date:</label>
                 <input class="calendar" type="date" id="date" required pattern="\d{2}-\d{2}-\d{4}">
-                <p></p>
-                <p></p>
-                <h3 class="trans" id="percentile"></h3>
-
+                <h3 class="trans" id="percentile">OR</h3>
+                <label id="yearsStr" for="years">Years:</label>
+                <input type="number" id="years">
+                <label id="MonthsStr" for="months">Months:</label>
+                <input type="number" id="months">kg
             </div>
             <div class="grid">
                 <label id="weightStr" for="weight">Weight:</label>
-                <input type="number" id="weight" >kg
+                <input type="number" id="weight">kg
                 <h3>P</h3>
                 <h1 class="trans" id="wp">0</h1>
             </div>
