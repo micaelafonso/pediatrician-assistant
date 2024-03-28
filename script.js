@@ -8,12 +8,16 @@ response.then((response) => {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Get the user's preferred language
-    const userLanguage = navigator.language || navigator.userLanguage;
+    const userLanguage = Intl.DateTimeFormat().resolvedOptions().locale;
+    console.log(userLanguage);
 
     // Set up language-specific content
     const content = {
-        'en': { boyStr: "Boy", girlStr:"Girl", dateStr: 'Date:', percentile: 'Percentile', weightStr: 'Weight:', heightStr: 'Height:', headCircumferenceStr: 'Head Circumference:', bmiStr: 'BMI:'},
-        'pt': { boyStr: "Rapaz", girlStr: "Rapariga", dateStr: 'Data:', percentile: 'Percentil', weightStr: 'Peso:', heightStr: 'Altura:', headCircumferenceStr: 'Perímetro cefálico:', bmiStr: 'IMC:'},
+
+        'en-US': { boyStr: "Boy", girlStr: "Girl", dateStr: 'Date:', percentile: 'Percentile', weightStr: 'Weight:', heightStr: 'Height:', headCircumferenceStr: 'Head Circumference:', bmiStr: 'BMI:', yearsStr: "Years:", monthsStr: "Months:" },
+        'pt-BR': { boyStr: "Menino", girlStr: "Menina", dateStr: 'Data:', percentile: 'Percentil', weightStr: 'Peso:', heightStr: 'Altura:', headCircumferenceStr: 'Perímetro cefálico:', bmiStr: 'IMC:', yearsStr: "Anos:", monthsStr: "Meses:" },
+        'pt-PT': { boyStr: "Rapaz", girlStr: "Rapariga", dateStr: 'Data:', percentile: 'Percentil', weightStr: 'Peso:', heightStr: 'Altura:', headCircumferenceStr: 'Perímetro cefálico:', bmiStr: 'IMC:', yearsStr: "Anos:", monthsStr: "Meses:" },
+
         // Add more languages as needed
     };
 
@@ -32,24 +36,25 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('heightStr').innerText = userContent.heightStr;
     document.getElementById('headCircumferenceStr').innerText = userContent.headCircumferenceStr;
     document.getElementById('bmiStr').innerText = userContent.bmiStr;
+    document.getElementById('yearsStr').innerText = userContent.yearsStr;
+    document.getElementById('monthsStr').innerText = userContent.monthsStr;
 
-
-    // Add code to update other language-specific content as needed
 });
 
 
 let gender = "boys";
 let weight = 0;
 let height = 1;
-let weeks = 0;
-let years = 0;
+
 let months = 0;
 let days = 0;
 let hc = 0;
 
 radiobtn = document.getElementById("male");
 radiobtn.checked = true;
-let boyBackgroundColor= "#D9EDF8";
+
+let boyBackgroundColor = "#D9EDF8";
+
 let girlBackgroundColor = "#F2C6DE";
 document.body.style.backgroundColor = boyBackgroundColor;
 
@@ -61,9 +66,9 @@ document.getElementById('date').addEventListener('input', (e) => {
     days = Math.round(difference / 1000 / 60 / 60 / 24);
 
     months = Math.round(days / 30);
-
+    document.getElementById('years').innerText = 0;
+    document.getElementById('months').innerText = 0;
     performAllCalculations();
-
 });
 
 document.getElementById('male').addEventListener('change', (e) => {
